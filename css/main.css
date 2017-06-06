@@ -1,0 +1,30 @@
+* {
+  margin:0px;
+  padding:0px;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  color: #fff;
+  font-size: 18px;
+  height: 56px;
+  line-height: 56px;
+  padding-left: 16px;
+  background-color: #F44336;
+}
+
+header .fa-chevron-left {
+  margin-right: 16px;
+}
+
+input{
+  position: relative;
+}
+
+.fa .fa-search{
+  position: absolute;
+  top: 0;
+  left: 0;
+  color: gray;
+}
