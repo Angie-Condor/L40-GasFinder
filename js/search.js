@@ -19,7 +19,6 @@ const Search = () =>{
   return parent;
 }
 
-
 const Item = (data,update) => {
   const infoStation = $('<div class="info-station">');
   const checkbox = $('<input type="checkbox">');
