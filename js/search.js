@@ -10,18 +10,11 @@ const Search = () =>{
   parent.append(hr);
   parent.append(list);
 
-  /*input.on('keypress',(e) => {
-    if(e.which === 13){
-      if(input.val() != ""){
-        state.todos({
-          text: input.val(),
-          completed: false
-        });
-        input.val('');
-        reRender(list);
-      }
+  input.on('keyup',(e) => {
+    if(input.val() != ""){
+      filterByDistrict(state.stations, input.val());
     }
-  });*/
+  });
 
   return parent;
 }
@@ -46,7 +39,7 @@ const Item = (data,update) => {
 
 const reRender = (list) => {
   list.empty();
-  console.log(state.stations);
+  state.stations;
   // update();
 };
 

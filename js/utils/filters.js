@@ -1,6 +1,7 @@
 'use strict';
 
 const filterByDistrict = (stations,query) => {
-  state.stations.filter(stations.json);
-  update();
+  return stations.filter((elemento) =>{
+    return (elemento.district.indexOf(query) !== -1);
+  });
 }
