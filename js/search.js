@@ -1,65 +1,69 @@
 const Search = () =>{
   const parent = $('<div class="white-card"></div>');
-  const lupa = $('<div class="fa fa-search"></div>')
+  const lupa = $('<div class="fa fa-search"></div>');
   const input = $('<input id="input-item" type="text" placeholder="Ingresa tu distrito a buscar">');
   const hr = $('<hr>');
   const list = $('<div class="list"></div>');
-  const completedList = $('<div class="completed"></div>');
 
   parent.append(input);
   parent.append(lupa);
   parent.append(hr);
   parent.append(list);
-  parent.append(completedList);
 
-
-  input.on('keypress',(e) => {
+  /*input.on('keypress',(e) => {
     if(e.which === 13){
       if(input.val() != ""){
-        state.todos.push({
+        state.todos({
           text: input.val(),
           completed: false
         });
         input.val('');
-        reRender(list, completedList);
+        reRender(list);
       }
     }
-  });
+  });*/
 
   return parent;
 }
 
-const reRender = (todoList, completedList) => {
-  todoList.empty();
-  completedList.empty();
-  state.todos.forEach(todo =>{
-    if(!todo.completed){
-      todoList.append(TodoItem(todo,_ => { reRender(todoList,completedList);}));
-    } else {
-      completedList.append(TodoItem(todo,_ =>{ reRender(todoList, completedList);}));
-    }
-  });
-}
 
-const TodoItem = (data,update) => {
-  const todo = $('<div class="todo">');
+const Item = (data,update) => {
+  const infoStation = $('<div class="info-station">');
   const checkbox = $('<input type="checkbox">');
-  const span = $('<span>'+data.text+'</span>');
-  const remove = $('<button>Remove</button>');
+  const name = $('<h5>'+data.name+'</h5>');
+  const address = $('<span>'+data.adress+'</span>');
+  const district = $('<span>'+data.district+'</span>');
+  const map = $('<div class="fa fa-map"></div>')
 
-  todo.append(checkbox);
-  todo.append(span);
-  todo.append(remove);
+  infoStation.append(checkbox);
+  infoStation.append(name);
+  infoStation.append(address);
+  infoStation.append(district);
+  infoStation.append(map);
 
-  checkbox.on('change', (e) => {
-    data.completed = !data.completed;
-    update();
-  });
-
-  remove.on('click', (e) => {
-    const idx = state.todos.map( x => x.text ).indexOf(data.text);
-    state.todos.splice(idx,1);
-    update();
-  });
-  return todo;
+  return infoStation;
 };
+
+const reRender = (list) => {
+  list.empty();
+  console.log(state.stations);
+  // update();
+};
+
+
+// forEach(infoStation =>{
+//   list.append(Item(infoStation,_ => { reRender(list);}));
+//
+
+
+/*checkbox.on('change', (e) => {
+  data.completed = !data.completed;
+  update();
+});
+
+remove.on('click', (e) => {
+  const idx = state.todos.map( x => x.text ).indexOf(data.text);
+  state.todos.splice(idx,1);
+  update();
+});
+*/
